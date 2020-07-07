@@ -11,9 +11,11 @@ public class App {
     public static void main(String[] args) {
         //输入运算数
         Scanner sc = new Scanner(System.in);
-        Integer[] numArr = new Integer[5];
-        for (int i = 0; i < 5; ++i) {
-            numArr[i] = sc.nextInt();
+        String inputStr = sc.next();
+        String[] numStrArr = inputStr.split(",");
+        Integer[] numArr = new Integer[numStrArr.length];
+        for(int i = 0; i < numStrArr.length; ++i) {
+            numArr[i] = Integer.valueOf(numStrArr[i]);
         }
 
         Date start = new Date();
@@ -32,7 +34,8 @@ public class App {
             List<Integer> statement = new ArrayList<Integer>();
             Collections.addAll(statement, numArr);
             char[] chars = operator.toCharArray();
-            for (int i = 0; i < chars.length; ++i) {
+            int charsLen = chars.length;
+            for (int i = 0; i < charsLen; ++i) {
                 statement.add(new Integer(chars[i]));
             }
 
