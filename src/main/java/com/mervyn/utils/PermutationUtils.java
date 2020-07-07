@@ -31,10 +31,32 @@ public class PermutationUtils {
             return;
         }
         for (int i = pos; i < n; ++i) {
-            swap(statement, pos, i);
-            permutation(statement, pos+1, n);
-            swap(statement, pos, i);
+            if (isSwap(statement, pos, i)) {
+                swap(statement, pos, i);
+                permutation(statement, pos+1, n);
+                swap(statement, pos, i);
+            }
         }
+    }
+
+    /**
+     * @Title: isSwap
+     * @Description: TODO(如果[a,b) 中存在 num[i] == num[b]不交换，避免重复)
+     * @author lsy
+     * @date  2020年07月07日 15:14:15
+     * @param statement
+     * @param a
+     * @param b
+     * @return boolean
+     * @throws
+     */
+    private static boolean isSwap(List<Integer> statement, int a, int b) {
+        for (int i = a; i < b; ++i) {
+            if (statement.get(i) == statement.get(b)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

@@ -51,6 +51,6 @@ public class App {
         }
 
         Date end = new Date();
-        System.out.println("耗时:" + (end.getTime() - start.getTime()) + "ms");
+        System.out.println(resultSet.size()+"个，耗时:" + (end.getTime() - start.getTime()) + "ms");
     }
 }
