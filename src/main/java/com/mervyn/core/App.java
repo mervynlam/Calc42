@@ -24,6 +24,9 @@ public class App {
         //结果set
         Set<String> resultSet = new HashSet<String>();
 
+        //全排列个数
+        int permNum = 0;
+
         for (String operator : operatorArr) {
             //运算数拼接运算符
             List<Integer> statement = new ArrayList<Integer>();
@@ -35,6 +38,7 @@ public class App {
 
             //全排列
             List<List<Integer>> permutationList = PermutationUtils.permutation(statement);
+            permNum+= permutationList.size();
 
             //计算每一个排列
             for (List<Integer> calcStatement : permutationList) {
@@ -51,6 +55,7 @@ public class App {
         }
 
         Date end = new Date();
+        System.out.println("全排列："+permNum+"个");
         System.out.println(resultSet.size()+"个，耗时:" + (end.getTime() - start.getTime()) + "ms");
     }
 }

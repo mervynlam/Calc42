@@ -68,7 +68,20 @@ public class PermutationUtils {
      * @return void
      * @throws
     */
-    private static void addToList(List<Integer> statement) {
+    public static void addToList(List<Integer> statement) {
+        //判断是否合法后缀表达式，第n个（不包括最后一个）运算符前面必须有n+1个运算数
+        int opNum = 0;
+        int num = 0;
+        for (int elem : statement) {
+            if (CalculateUtils.isOperator(elem)) {
+                opNum++;
+            } else {
+                num++;
+            }
+            if (opNum > num-1) {
+                return;
+            }
+        }
         List<Integer> tmp = new ArrayList<Integer>();
         for (Integer a : statement) {
             tmp.add(a);

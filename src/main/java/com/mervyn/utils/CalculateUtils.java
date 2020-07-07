@@ -95,7 +95,7 @@ public class CalculateUtils {
      * @return boolean
      * @throws
     */
-    private static boolean isOperator(int op) {
+    public static boolean isOperator(int op) {
         if (op == 42 || op == 43 || op == 45 || op == 47) {
             return true;
         } else {
